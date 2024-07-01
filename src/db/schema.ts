@@ -1,4 +1,3 @@
-import { InferInsertModel, InferSelectModel } from "drizzle-orm";
 import { pgTable, integer, real, text, serial, boolean, timestamp } from "drizzle-orm/pg-core";
 
 export const vesselLocationsBySecondTable = pgTable("vessel_locations_by_second", {
@@ -7,10 +6,10 @@ export const vesselLocationsBySecondTable = pgTable("vessel_locations_by_second"
   vesselName: text("vessel_name").notNull(),
   departTermID: integer("depart_term_id").notNull(),
   departTermName: text("depart_term_name").notNull(),
-  departTermAbbrev: text("depart_term_abbrev").notNull(),
+  departTermAbrv: text("depart_term_abrv").notNull(),
   arrivTermID: integer("arriv_term_id"),
   arrivTermName: text("arriv_term_name"),
-  arrivTermAbbrev: text("arriv_term_abbrev"),
+  arrivTermAbrv: text("arriv_term_abrv"),
   lat: real("lat").notNull(),
   lon: real("lon").notNull(),
   speed: real("speed").notNull(),
@@ -18,9 +17,9 @@ export const vesselLocationsBySecondTable = pgTable("vessel_locations_by_second"
   inService: boolean("in_service").notNull(),
   atDock: boolean("at_dock").notNull(),
   leftDock: timestamp("left_dock"),
-  eta: text("eta"),
+  eta: timestamp("eta"),
   schedDeparture: timestamp("sched_departure"),
-  opRouteAbbrev: text("op_route_abbrev"),
+  opRouteAbrv: text("op_route_abrv"),
   vesselPosNum: integer("vessel_pos_num"),
   timeStamp: timestamp("time_stamp").notNull(),
   timeFetched: timestamp("time_fetched").notNull(),
@@ -32,10 +31,10 @@ export const vesselLocationsByMinuteTable = pgTable("vessel_locations_by_minute"
   vesselName: text("vessel_name").notNull(),
   departTermID: integer("depart_term_id").notNull(),
   departTermName: text("depart_term_name").notNull(),
-  departTermAbbrev: text("depart_term_abbrev").notNull(),
+  departTermAbrv: text("depart_term_abrv").notNull(),
   arrivTermID: integer("arriv_term_id"),
   arrivTermName: text("arriv_term_name"),
-  arrivTermAbbrev: text("arriv_term_abbrev"),
+  arrivTermAbrv: text("arriv_term_abrv"),
   lat: real("lat").notNull(),
   lon: real("lon").notNull(),
   speed: real("speed").notNull(),
@@ -45,11 +44,11 @@ export const vesselLocationsByMinuteTable = pgTable("vessel_locations_by_minute"
   leftDock: timestamp("left_dock"),
   eta: timestamp("eta"),
   schedDeparture: timestamp("sched_departure"),
-  opRouteAbbrev: text("op_route_abbrev"),
+  opRouteAbrv: text("op_route_abrv"),
   vesselPosNum: integer("vessel_pos_num"),
   timeStamp: timestamp("time_stamp").notNull(),
   timeFetched: timestamp("time_fetched").notNull(),
 });
 
-export type NewVesselLocation = InferInsertModel<typeof vesselLocationsByMinuteTable>;
-export type SelectVesselLocation = InferSelectModel<typeof vesselLocationsByMinuteTable>;
+// export type InsertVesselLocation = typeof vesselLocationsByMinuteTable.$inferInsert;
+// export type SelectVesselLocation = typeof vesselLocationsByMinuteTable.$inferSelect;

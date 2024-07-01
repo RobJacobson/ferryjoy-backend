@@ -1,5 +1,5 @@
 {
-  "id": "79856f76-aa6b-418c-b5dc-b62dbe718458",
+  "id": "64caa1b5-42d1-4a9e-89c3-e7d41b16bd52",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "7",
   "dialect": "postgresql",
@@ -38,8 +38,8 @@
           "primaryKey": false,
           "notNull": true
         },
-        "depart_term_abbrev": {
-          "name": "depart_term_abbrev",
+        "depart_term_abrv": {
+          "name": "depart_term_abrv",
           "type": "text",
           "primaryKey": false,
           "notNull": true
@@ -56,8 +56,8 @@
           "primaryKey": false,
           "notNull": false
         },
-        "arriv_term_abbrev": {
-          "name": "arriv_term_abbrev",
+        "arriv_term_abrv": {
+          "name": "arriv_term_abrv",
           "type": "text",
           "primaryKey": false,
           "notNull": false
@@ -116,8 +116,8 @@
           "primaryKey": false,
           "notNull": false
         },
-        "op_route_abbrev": {
-          "name": "op_route_abbrev",
+        "op_route_abrv": {
+          "name": "op_route_abrv",
           "type": "text",
           "primaryKey": false,
           "notNull": false
@@ -180,8 +180,8 @@
           "primaryKey": false,
           "notNull": true
         },
-        "depart_term_abbrev": {
-          "name": "depart_term_abbrev",
+        "depart_term_abrv": {
+          "name": "depart_term_abrv",
           "type": "text",
           "primaryKey": false,
           "notNull": true
@@ -198,8 +198,8 @@
           "primaryKey": false,
           "notNull": false
         },
-        "arriv_term_abbrev": {
-          "name": "arriv_term_abbrev",
+        "arriv_term_abrv": {
+          "name": "arriv_term_abrv",
           "type": "text",
           "primaryKey": false,
           "notNull": false
@@ -248,7 +248,7 @@
         },
         "eta": {
           "name": "eta",
-          "type": "text",
+          "type": "timestamp",
           "primaryKey": false,
           "notNull": false
         },
@@ -258,8 +258,8 @@
           "primaryKey": false,
           "notNull": false
         },
-        "op_route_abbrev": {
-          "name": "op_route_abbrev",
+        "op_route_abrv": {
+          "name": "op_route_abrv",
           "type": "text",
           "primaryKey": false,
           "notNull": false
