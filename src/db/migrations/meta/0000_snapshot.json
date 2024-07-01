@@ -1,0 +1,299 @@
+{
+  "id": "79856f76-aa6b-418c-b5dc-b62dbe718458",
+  "prevId": "00000000-0000-0000-0000-000000000000",
+  "version": "7",
+  "dialect": "postgresql",
+  "tables": {
+    "public.vessel_locations_by_minute": {
+      "name": "vessel_locations_by_minute",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "vessel_id": {
+          "name": "vessel_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "vessel_name": {
+          "name": "vessel_name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "depart_term_id": {
+          "name": "depart_term_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "depart_term_name": {
+          "name": "depart_term_name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "depart_term_abbrev": {
+          "name": "depart_term_abbrev",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "arriv_term_id": {
+          "name": "arriv_term_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "arriv_term_name": {
+          "name": "arriv_term_name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "arriv_term_abbrev": {
+          "name": "arriv_term_abbrev",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "lat": {
+          "name": "lat",
+          "type": "real",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "lon": {
+          "name": "lon",
+          "type": "real",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "speed": {
+          "name": "speed",
+          "type": "real",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "heading": {
+          "name": "heading",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "in_service": {
+          "name": "in_service",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "at_dock": {
+          "name": "at_dock",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "left_dock": {
+          "name": "left_dock",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "eta": {
+          "name": "eta",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "sched_departure": {
+          "name": "sched_departure",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "op_route_abbrev": {
+          "name": "op_route_abbrev",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "vessel_pos_num": {
+          "name": "vessel_pos_num",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "time_stamp": {
+          "name": "time_stamp",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "time_fetched": {
+          "name": "time_fetched",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "public.vessel_locations_by_second": {
+      "name": "vessel_locations_by_second",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "vessel_id": {
+          "name": "vessel_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "vessel_name": {
+          "name": "vessel_name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "depart_term_id": {
+          "name": "depart_term_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "depart_term_name": {
+          "name": "depart_term_name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "depart_term_abbrev": {
+          "name": "depart_term_abbrev",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "arriv_term_id": {
+          "name": "arriv_term_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "arriv_term_name": {
+          "name": "arriv_term_name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "arriv_term_abbrev": {
+          "name": "arriv_term_abbrev",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "lat": {
+          "name": "lat",
+          "type": "real",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "lon": {
+          "name": "lon",
+          "type": "real",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "speed": {
+          "name": "speed",
+          "type": "real",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "heading": {
+          "name": "heading",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "in_service": {
+          "name": "in_service",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "at_dock": {
+          "name": "at_dock",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "left_dock": {
+          "name": "left_dock",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "eta": {
+          "name": "eta",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "sched_departure": {
+          "name": "sched_departure",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "op_route_abbrev": {
+          "name": "op_route_abbrev",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "vessel_pos_num": {
+          "name": "vessel_pos_num",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "time_stamp": {
+          "name": "time_stamp",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "time_fetched": {
+          "name": "time_fetched",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    }
+  },
+  "enums": {},
+  "schemas": {},
+  "_meta": {
+    "columns": {},
+    "schemas": {},
+    "tables": {}
+  }
+}
