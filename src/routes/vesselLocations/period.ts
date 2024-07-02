@@ -16,7 +16,7 @@ export const periodRoute = (period: "second" | "minute") => {
           vesselLocations = await fetchVesselLocations();
           const saved = await saveVesselLocations(vesselLocations);
           if (saved.length > 0) {
-            console.log(`VesselLocations ${period}: ${saved.length}`);
+            console.log(`${new Date()} VesselLocations ${period}: ${saved.length}`);
           }
         },
       })
