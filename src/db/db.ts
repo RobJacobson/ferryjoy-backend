@@ -6,6 +6,6 @@ if (!process.env.DATABASE_URL) {
   throw new Error("Database credentials missing.");
 }
 
-const client = new Pool({ connectionString: process.env.DATABASE_URL });
+const client = new Pool({ connectionString: process.env.DATABASE_PRIVATE_URL });
 
 export const db: NodePgDatabase<typeof schema> = drizzle(client, { schema });
