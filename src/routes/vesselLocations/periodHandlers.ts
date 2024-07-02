@@ -1,0 +1,46 @@
+import { db } from "../../db/db";
+import { VesselLocation } from "../../wsf/vesselLocation";
+import { vesselLocationsBySecondTable, vesselLocationsByMinuteTable } from "../../db/schema";
+import { and, gte, lt } from "drizzle-orm";
+
+// await db.delete(vesselLocationsByMinuteTable);
+
+export const periodHandler = (period: "second" | "minute") => {
+  const prevLocations = <Record<number, VesselLocation>>{};
+  const table = period === "second" ? vesselLocationsBySecondTable : vesselLocationsByMinuteTable;
+
+  const isNew = (currLocation: VesselLocation) => {
+    const prevLocation = prevLocations[currLocation.vesselID];
+    const result = !prevLocation || currLocation.timeStamp > prevLocation.timeStamp;
+    prevLocations[currLocation.vesselID] = result ? currLocation : prevLocation;
+    return result;
+  };
+
+  const dedupe = (currLocations: VesselLocation[]) => currLocations.filter(isNew);
+
+  const saveVesselLocations = async (locations: VesselLocation[]) => {
+    const dedupedLocations = period === "second" ? dedupe(locations) : locations;
+    if (dedupedLocations.length === 0) {
+      return [];
+    }
+    return await db.insert(table).values(dedupedLocations).returning();
+  };
+
+  const getVesselLocations = async (start: string, end: string) => {
+    console.log("second");
+    return await db
+      .select()
+      .from(table)
+      .where(
+        and(
+          gte(vesselLocationsBySecondTable.timeFetched, new Date(start)),
+          lt(vesselLocationsBySecondTable.timeFetched, new Date(end))
+        )
+      );
+  };
+
+  return {
+    saveVesselLocations,
+    getVesselLocations,
+  };
+};
