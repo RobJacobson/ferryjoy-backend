@@ -1,4 +1,3 @@
-version: "3"
 services:
   db:
     image: postgres
@@ -10,7 +9,7 @@ services:
     environment:
       - POSTGRES_DB=ferryjoy
       - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=24680vbnm!
+      - POSTGRES_PASSWORD=vbnm24680!
 
   adminer:
     image: adminer
