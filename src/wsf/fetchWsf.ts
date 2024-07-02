@@ -28,10 +28,16 @@ export const toDate = (wsfDate: string) => {
 
 // Fetching function customized for the Wsf API.
 export const fetchWsf = async (endpoint: string) => {
-  const url = toUrl(endpoint);
-  const results = await axios.get(url, {
-    transformResponse: wsfTransformer,
-  });
-  console.log(`Fetched ${JSON.stringify(results.data).length} bytes`);
-  return results.data;
+  try {
+    const url = toUrl(endpoint);
+    const results = await axios.get(url, {
+      transformResponse: wsfTransformer,
+    });
+    console.log(`Fetched ${JSON.stringify(results.data).length} bytes`);
+    return results.data;
+  } catch (err) {
+    console.error(`Fetch error with endpoint: ${endpoint}`);
+    console.error(err);
+    return [];
+  }
 };
