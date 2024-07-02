@@ -33,7 +33,7 @@ export const fetchWsf = async (endpoint: string) => {
     const results = await axios.get(url, {
       transformResponse: wsfTransformer,
     });
-    console.log(`Fetched ${JSON.stringify(results.data).length} bytes`);
+    // console.log(`Fetched ${JSON.stringify(results.data).length} bytes`);
     return results.data;
   } catch (err) {
     console.error(`Fetch error with endpoint: ${endpoint}`);

@@ -18,17 +18,16 @@ export const periodHandler = (period: "second" | "minute") => {
 
   const dedupe = (currLocations: VesselLocation[]) => currLocations.filter(isNew);
 
-  const saveVesselLocations = async (locations: VesselLocation[]) => {
+  const saveVesselLocations = (locations: VesselLocation[]) => {
     const dedupedLocations = period === "second" ? dedupe(locations) : locations;
     if (dedupedLocations.length === 0) {
       return [];
     }
-    return await db.insert(table).values(dedupedLocations).returning();
+    return db.insert(table).values(dedupedLocations).returning();
   };
 
-  const getVesselLocations = async (start: string, end: string) => {
-    console.log("second");
-    return await db
+  const getVesselLocations = (start: string, end: string) => {
+    return db
       .select()
       .from(table)
       .where(between(vesselLocationsBySecondTable.timeFetched, new Date(start), new Date(end)));
