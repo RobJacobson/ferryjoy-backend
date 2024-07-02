@@ -15,3 +15,5 @@ const vesselLocationsRoute = new Elysia({ prefix: "/vessellocations" })
   .group("/second", (app) => app.use(vesselLocationsBySecondRoute));
 
 export default vesselLocationsRoute;
+
+// Dummy comment to trigger rebuild
