@@ -1,7 +1,7 @@
 import { db } from "../../db/db";
 import { VesselLocation } from "../../wsf/vesselLocation";
 import { vesselLocationsBySecondTable, vesselLocationsByMinuteTable } from "../../db/schema";
-import { and, gte, lt } from "drizzle-orm";
+import { between } from "drizzle-orm";
 
 // await db.delete(vesselLocationsByMinuteTable);
 
@@ -31,12 +31,7 @@ export const periodHandler = (period: "second" | "minute") => {
     return await db
       .select()
       .from(table)
-      .where(
-        and(
-          gte(vesselLocationsBySecondTable.timeFetched, new Date(start)),
-          lt(vesselLocationsBySecondTable.timeFetched, new Date(end))
-        )
-      );
+      .where(between(vesselLocationsBySecondTable.timeFetched, new Date(start), new Date(end)));
   };
 
   return {
