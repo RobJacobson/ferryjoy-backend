@@ -11,7 +11,7 @@ export const periodRoute = (period: "second" | "minute") => {
     .use(
       cron({
         name: `fetchVesselLocations ${period}`,
-        pattern: period === "second" ? "*/5 * * * *" : Patterns.everyMinute(),
+        pattern: period === "second" ? " */10 * * * * *" : Patterns.everyMinute(),
         run: async () => {
           vesselLocations = await fetchVesselLocations();
           const saved = await saveVesselLocations(vesselLocations);
