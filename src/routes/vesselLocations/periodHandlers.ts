@@ -30,7 +30,7 @@ export const periodHandler = (period: "second" | "minute") => {
     return db
       .select()
       .from(table)
-      .where(between(vesselLocationsBySecondTable.timeFetched, new Date(start), new Date(end)));
+      .where(between(table.timeFetched, new Date(start), new Date(end)));
   };
 
   return {
